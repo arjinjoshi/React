@@ -1,6 +1,6 @@
 import StudentForm from "./StudentForm";
 import StudentList from "./StudentList";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export type genderCategory = 'Male' | 'Female' | 'Non-Binary';
 
@@ -58,10 +58,55 @@ const  INITIAL_STUDENTS_DATA : StudentData[] = [
 ] 
 
 
+function initialData(){
+    const storedData = localStorage.getItem("totalStudents");
+
+    if(storedData){
+       try{
+          const totalStudentsParsed: StudentData[] = JSON.parse(storedData);
+          return totalStudentsParsed;
+       }catch(e){
+        // If parsing fails, reset to initial
+        return INITIAL_STUDENTS_DATA;
+       }
+    }
+    else{
+      // If nothing in localStorage, initialize the initial data
+      return INITIAL_STUDENTS_DATA;
+    }
+    
+}
 
 const StudentTracker = () => {
-  const [students, setStudents] = useState<StudentData[]>(INITIAL_STUDENTS_DATA);
+  const [students, setStudents] = useState<StudentData[]>(initialData);
 
+  // useEffect(() => {
+  //   // Load from local storage or initialize if not present
+  //   const storedData = localStorage.getItem("totalStudents");
+
+  //   if(storedData){
+  //      try{
+  //         const totalStudentsParsed: StudentData[] = JSON.parse(storedData);
+  //         setStudents(totalStudentsParsed);
+  //      }catch(e){
+  //       // If parsing fails, reset to initial
+  //       setStudents(INITIAL_STUDENTS_DATA);
+  //       localStorage.setItem("totalStudents", JSON.stringify(INITIAL_STUDENTS_DATA));
+  //      }
+  //   }else{
+  //     // If nothing in localStorage, initialize the initial data
+  //     localStorage.setItem("totalStudents", JSON.stringify(INITIAL_STUDENTS_DATA));
+  //   }
+  // }, []);
+
+  useEffect(() => {
+    // // save to local storage
+    // if (students.length === 0){
+    //   return;
+    // };
+    localStorage.setItem("totalStudents", JSON.stringify(students))
+  },[students]);
+  
 
   function onClickHandler(newStudent: StudentData){
 

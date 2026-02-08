@@ -12,6 +12,7 @@ const StudentForm = ({clickHandler}: onClickHandlerProps) => {
   const [gender, setGender] = useState<genderCategory>('Male');
   const [image_url, setImageUrl] = useState<string>('');
 
+
   function onSubmitHandler(e:React.FormEvent<HTMLFormElement>){
     e.preventDefault();
 
@@ -29,7 +30,8 @@ const StudentForm = ({clickHandler}: onClickHandlerProps) => {
     setAddress('');
     setPhoneNumber('');
     setGender('Male');
-    setPhoneNumber('')
+    setPhoneNumber('');
+    setImageUrl('');
   }
 
   return (
