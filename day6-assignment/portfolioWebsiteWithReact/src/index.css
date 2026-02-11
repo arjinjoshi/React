@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+
+@theme {
+  --color-lightdarkblue: #343D68;
+  --color-lightpurple: #4E45D5;
+  --color-bgOrange: #e84949;
+  --color-lightGray: #E7E7E7;
+  --color-lightNavyBlue: #6F748E;
+  --color-lightPinkCream: #E7E7E7;
+
+
+
+  @keyframes scale-image {
+    0%, 100% {
+      filter: grayscale(0);
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+      filter: grayscale(1);
+      box-shadow: 3px 3px 10px black;
+    }
+
+   }
+  --animate-scale-image: scale-image 5s linear infinite;
+  
+}
