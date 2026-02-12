@@ -5,7 +5,7 @@ import { Routes, Route } from "react-router";
 
 const App = () => {
   return (
-    <div className="min-h-screen w-screen h-screen flex flex-col bg-gray-600">
+    <div className="min-h-screen w-screen h-full flex flex-col bg-gray-600">
       <Header title="Student Tracker" />
       <Routes>
         <Route index element={<StudentList />} />
