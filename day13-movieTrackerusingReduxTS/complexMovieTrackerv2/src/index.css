@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+:root{
+  --var1: rgb(38, 38, 38);
+  --var2: rgb(226, 232, 206);
+  --var3: rgb(172, 191, 164);
+  --var4: rgb(255, 127, 17);
+  --var5: rgb(33, 52, 72);
+}
+
+* {
+  font-family: 'helvetica-neue';
+}
