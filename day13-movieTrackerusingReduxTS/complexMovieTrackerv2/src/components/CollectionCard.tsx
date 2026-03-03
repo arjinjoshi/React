@@ -36,7 +36,10 @@ const CollectionCard = ({item, currentTab}: CollectionCardProps) => {
       
       
       </div>
-      <div className=" text-(--var2) text-xl font-bold">
+      <div onClick={() => {
+        const url:string = `https://www.themoviedb.org/${item.media_type}/${item.id}`;
+        window.open (url, '_blank', 'noopener,noreferrer');
+      }} className=" text-(--var2) text-xl font-bold">
         <div className="absolute bottom-0 text-(--var2) inset-x-0 bg-linear-to-t from-black to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300">
           <div className="mt-15 px-5 flex justify-between items-center text-sm">
             <p>{item.release_date?.split("-")[0]}</p>

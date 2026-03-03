@@ -23,7 +23,8 @@ const Movies = () => {
               poster_path: item.poster_path,
               release_date: item.release_date,
               vote_average: item.vote_average,
-              overview: item.overview
+              overview: item.overview,
+              media_type: "movie"
             }));
           }
         }catch(err){

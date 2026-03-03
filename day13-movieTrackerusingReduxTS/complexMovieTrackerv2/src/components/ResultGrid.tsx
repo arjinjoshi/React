@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../hooks/hooks'
 import { searchResult } from '../api/api';
-import { setIsError, setIsLoading, setResults, type Search } from '../redux/slices/SearchListSlice';
+import { setIsError, setIsLoading, setResults, type media_type, type Search } from '../redux/slices/SearchListSlice';
 import ResultCard from './ResultCard';
 
 export interface SearchTV{
@@ -11,6 +11,7 @@ export interface SearchTV{
   first_air_date: string;
   vote_average: number;
   overview: string;
+  media_type: media_type;
 }
 
 const ResultGrid = () => {
@@ -32,7 +33,8 @@ const ResultGrid = () => {
               poster_path: item.poster_path,
               release_date: item.release_date,
               vote_average: item.vote_average,
-              overview: item.overview
+              overview: item.overview,
+              media_type: "movie",
             }));
           }else{
             console.error("Error while fetching movies from backend")
@@ -48,7 +50,8 @@ const ResultGrid = () => {
               poster_path: item.poster_path,
               release_date: item.first_air_date,
               vote_average: item.vote_average,
-              overview: item.overview
+              overview: item.overview,
+              media_type: "tv"
             }))
           }else{
             console.error("Error while fetching tv shows from backend")

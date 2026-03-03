@@ -1,5 +1,6 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 
+export type media_type = "movie" | "tv";
 export interface Search {
     id: number;
     original_title: string;
@@ -7,6 +8,7 @@ export interface Search {
     release_date: string;
     overview: string;
     vote_average: number;
+    media_type: media_type;
 }
 
 interface Results{

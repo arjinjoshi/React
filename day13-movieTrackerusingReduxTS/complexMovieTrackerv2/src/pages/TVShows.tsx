@@ -24,7 +24,8 @@ const TVShows = () => {
               poster_path: item.poster_path,
               release_date: item.first_air_date,
               vote_average: item.vote_average,
-              overview: item.overview
+              overview: item.overview,
+              media_type: "tv",
             }));
           }
         }catch(err){
