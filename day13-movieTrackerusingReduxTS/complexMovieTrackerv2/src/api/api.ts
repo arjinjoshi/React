@@ -35,6 +35,19 @@ export const fetchMovie = async (activeTab: string) => {
         console.log("Error while fetching search Result:", err);
     }
 }
+export const fetchTrendingDatas = async (activeTab: string) => {
+    try{
+        const response = await axios.get(`${BASEURL}trending/all/${activeTab}`,{
+            headers: {
+                accept: 'application/json',
+                Authorization: `Bearer ${accessToken}`
+            }
+        })
+         return response.data.results;
+    }catch(err){
+        console.log("Error while fetching search Result:", err);
+    }
+}
 export const fetchTVSeries = async (activeTab: string) => {
     try{
         const response = await axios.get(`${BASEURL}tv/${activeTab}`,{
