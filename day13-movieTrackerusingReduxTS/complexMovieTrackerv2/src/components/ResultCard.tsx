@@ -12,13 +12,13 @@ interface ResultCardProps {
 const ResultCard = ({item}: ResultCardProps) => {
     const dispatch = useAppDispatch();
   return (
-    <div className="w-1/6 h-110 rounded-xl z-50 border-none relative group overflow-hidden transition-all duration-300 hover:scale-105">
+    <div className="w-1/5 h-110 rounded-xl z-50 border-none relative group overflow-hidden transition-all duration-300 hover:scale-105">
       <img
-        className="object-cover"
+        className="object-fill w-full h-full"
         src={`https://image.tmdb.org/t/p/w500/${item.poster_path}`}
         alt={item.original_title}
       />
-      <div className="absolute opacity-0 group-hover:opacity-100 transition-all duration-300 text-xl font-bold top-0 right-0 flex gap-5 p-2">
+      <div className="w-full absolute opacity-0 group-hover:opacity-100 transition-all duration-300 text-xl font-bold top-0 right-0 flex flex-wrap gap-5 p-2">
       <button onClick={ () => {
             dispatch(addToWatchListCollection(item));
            }} className='bg-(--var4) active:scale-95 text-white rounded px-3 py-1 font-medium '>
@@ -40,8 +40,8 @@ const ResultCard = ({item}: ResultCardProps) => {
             <p>{item.vote_average.toFixed(2)} ⭐️</p>
           </div>
           <div className="text-sm px-5 pt-3">{item.original_title}</div>
-          <div className="text-sm px-5 pt-3 font-normal">
-            {(item.overview.slice(0, 100)) ? `${item.overview.slice(0, 100)}...` : ""}
+          <div className="text-sm px-5 pt-3 font-normal line-clamp-3">
+            {item.overview}
           </div>
         </div>
       </div>
